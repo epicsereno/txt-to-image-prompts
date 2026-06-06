@@ -1,0 +1,11 @@
+---
+title: Your Prompt Title
+tags: [tag-one, tag-two]
+aspect_ratio: "1:1"
+style: photorealistic
+models: [midjourney, stable-diffusion]
+---
+
+Describe your scene here in natural prose. Start with the main subject, then
+add setting, style, composition, and lighting. Keep it to one coherent scene
+and aim for two to five sentences.

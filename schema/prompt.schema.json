@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/epicsereno/txt-to-image-prompts/schema/prompt.schema.json",
+  "title": "Text-to-Image Prompt",
+  "description": "Schema for YAML frontmatter in prompt files",
+  "type": "object",
+  "required": ["title", "tags", "aspect_ratio", "style"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80,
+      "description": "Human-readable prompt name"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "minItems": 2,
+      "maxItems": 8,
+      "uniqueItems": true
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "2:3", "3:2", "auto"]
+    },
+    "style": {
+      "type": "string",
+      "enum": [
+        "photorealistic",
+        "illustration",
+        "anime",
+        "3d-render",
+        "oil-painting",
+        "watercolor",
+        "pixel-art",
+        "comic",
+        "minimalist",
+        "surreal"
+      ]
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "midjourney",
+          "dall-e",
+          "stable-diffusion",
+          "flux",
+          "grok-imagine",
+          "ideogram",
+          "firefly"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "author": {
+      "type": "string",
+      "description": "Optional contributor handle"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version for prompt revisions"
+    }
+  },
+  "additionalProperties": false
+}
